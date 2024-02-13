@@ -1,3 +1,25 @@
+# BOVIFOCR Project
+
+* #### Requirements
+
+  * Python 2.7 (numpy, skimage, scipy)
+  * TensorFlow 1.4
+  * dlib (for detecting face.  You do not have to install if you can provide bounding box information.)
+
+* #### Config env
+```
+ENV_NAME=BOVIFOCR_PRNet
+conda create --name $ENV_NAME python=2.7
+conda activate $ENV_NAME
+```
+  
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+
 # Joint 3D Face Reconstruction and Dense Alignment with Position Map Regression Network
 
 <p align="center"> 
