@@ -19,6 +19,19 @@ conda env config vars set PATH="$CUDA_HOME:$CUDA_HOME/bin:$LD_LIBRARY_PATH:$PATH
 
 pip install -r requirements.txt
 ```
+
+* #### Download pre-trained model
+
+1. Download the PRN trained model at [GoogleDrive](https://drive.google.com/file/d/1UoE-XuW1SDLUjZmJPkIZ1MLxvQFgmTFH/view?usp=sharing), and put it into `Data/net-data`
+
+2. Run the test code.(test AFLW2000 images)
+
+   `python run_basics.py #Can run only with python and tensorflow`
+
+3. Run with your own images
+
+   `python demo.py -i <inputDir> -o <outputDir> --isDlib True  `
+
   
 </br>
 </br>
