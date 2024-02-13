@@ -28,7 +28,15 @@ pip install -r requirements.txt
 
    `python run_basics.py #Can run only with python and tensorflow`
 
-3. Run with your own images
+3. Reconstruct face depth maps
+
+   `python reconstruct_depthmaps.py -i <inputDir> -o <outputDir>`
+
+   Will save into `<outputDir>`:
+
+   - <input_img>_depth.jpg
+
+4. Run with your own images
 
    `python demo.py -i <inputDir> -o <outputDir> --isDlib True --isDepth True --isImage True`
 
