@@ -32,6 +32,13 @@ pip install -r requirements.txt
 
    `python demo.py -i <inputDir> -o <outputDir> --isDlib True --isDepth True --isImage True`
 
+   Will save into `<outputDir>`:
+   
+   - <input_img>.jpg
+   - <input_img>.obj
+   - <input_img>_depth.jpg
+   - <input_img>_depth.mat
+
   
 </br>
 </br>
