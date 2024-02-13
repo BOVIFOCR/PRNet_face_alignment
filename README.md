@@ -30,7 +30,7 @@ pip install -r requirements.txt
 
 3. Run with your own images
 
-   `python demo.py -i <inputDir> -o <outputDir> --isDlib True  `
+   `python demo.py -i <inputDir> -o <outputDir> --isDlib True --isDepth True --isImage True`
 
   
 </br>
