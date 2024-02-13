@@ -2,6 +2,7 @@
 
 * #### Requirements
 
+  * CUDA 8.0
   * Python 2.7 (numpy, skimage, scipy)
   * TensorFlow 1.4
   * dlib (for detecting face.  You do not have to install if you can provide bounding box information.)
@@ -9,8 +10,12 @@
 * #### Config env
 ```
 ENV_NAME=BOVIFOCR_PRNet
-conda create --name $ENV_NAME python=2.7
+conda create --name $ENV_NAME python=2.7 --yes
 conda activate $ENV_NAME
+
+conda env config vars set CUDA_HOME="/usr/local/cuda-8.0"; conda deactivate; conda activate $ENV_NAME
+conda env config vars set LD_LIBRARY_PATH="$CUDA_HOME/lib64"; conda deactivate; conda activate $ENV_NAME
+conda env config vars set PATH="$CUDA_HOME:$CUDA_HOME/bin:$LD_LIBRARY_PATH:$PATH"; conda deactivate; conda activate $ENV_NAME
 ```
   
 </br>
