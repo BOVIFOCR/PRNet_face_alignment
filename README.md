@@ -16,6 +16,8 @@ conda activate $ENV_NAME
 conda env config vars set CUDA_HOME="/usr/local/cuda-8.0"; conda deactivate; conda activate $ENV_NAME
 conda env config vars set LD_LIBRARY_PATH="$CUDA_HOME/lib64"; conda deactivate; conda activate $ENV_NAME
 conda env config vars set PATH="$CUDA_HOME:$CUDA_HOME/bin:$LD_LIBRARY_PATH:$PATH"; conda deactivate; conda activate $ENV_NAME
+
+pip install -r requirements.txt
 ```
   
 </br>
