@@ -25,7 +25,14 @@ def find_images(folder_path, extensions):
             pattern = os.path.join(root, '*' + ext)
             matching_files = glob(pattern)
             image_paths.extend(matching_files)
-    return image_paths
+    return sorted(image_paths)
+
+
+def find_sample_by_substring(paths_list, substring):
+    for i, path in enumerate(paths_list):
+        if substring in path:
+            return i
+    return -1
 
 
 def main(args):
@@ -58,11 +65,24 @@ def main(args):
     #     raise Exception('No input images found in \''+ image_folder +'\'')
     types = ('.jpg', '.png')
     image_path_list = find_images(image_folder, types)
-    total_num = len(image_path_list)
-    if total_num == 0:
+    if len(image_path_list) == 0:
         raise Exception('No input images found in \''+ image_folder +'\'')
+    
+    start_idx = 0
+    end_idx = len(image_path_list)
+    if args.start_string != '':
+        print('\nSearching string \''+args.start_string+'\'')
+        found_string_idx = find_sample_by_substring(image_path_list, args.start_string)
+        if found_string_idx > -1:
+            print('String \''+args.start_string+'\' found at index '+str(found_string_idx)+'\n')
+            start_idx = found_string_idx
+        else:
+            print('Could not find string \''+args.start_string+'\'!\n')
 
-    for i, image_path in enumerate(sorted(image_path_list)):
+    image_path_list = image_path_list[start_idx:end_idx]
+    total_num = len(image_path_list)
+
+    for i, image_path in enumerate(image_path_list):
         start_time = time()
         print('i:', str(i)+'/'+str(total_num), '    image_path:', image_path)
 
@@ -202,4 +222,8 @@ if __name__ == '__main__':
     # update in 2017/7/19
     parser.add_argument('--texture_size', default=256, type=int,
                         help='size of texture map, default is 256. need isTexture is True')
+    
+    parser.add_argument('--start-index', default=-1, type=int, help='Image path index to start processing')
+    parser.add_argument('--start-string', default='', type=str, help='String to find out in image paths and start processing')
+
     main(parser.parse_args())
