@@ -180,8 +180,12 @@ def main(args):
         #     cv2.waitKey(0)
 
         spent_time = time() - start_time
-        print('Spent time: %.2f seconds' % (spent_time))
-        print('Estimated time: %.2f seconds' % (spent_time*(total_num-i)))
+        print('Spent time: %.2fsec' % (spent_time))
+        est_time_sec = spent_time*(total_num-i)
+        est_time_min = est_time_sec / 60
+        est_time_hour = est_time_min / 60
+        est_time_days = est_time_hour / 24
+        print('Estimated time: %.2fsec, %.2fmin, %.2fhour, %.2fdays' % (est_time_sec, est_time_min, est_time_hour, est_time_days))
         print('----------------')
 
 
